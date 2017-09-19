@@ -11,7 +11,7 @@ imports:
 
 node_types:
 
-  org.alien4cloud.monitoring.pub.nodes.GrafanaService:
+  org.alien4cloud.grafana.pub.nodes.GrafanaService:
     derived_from: tosca.nodes.SoftwareComponent
     abstract: true
     metadata:
