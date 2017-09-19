@@ -18,7 +18,7 @@ node_types:
       icon: /images/grafana.png
     capabilities:
       http_endpoint:
-        type: org.alien4cloud.monitoring.pub.capabilities.GrafanaHttpEndpoint
+        type: org.alien4cloud.grafana.pub.capabilities.GrafanaHttpEndpoint
         occurrences: [0, UNBOUNDED]
         description: UI endpoint
 
