@@ -80,7 +80,7 @@ topology_template:
             capability: tosca.capabilities.Container
             relationship: tosca.relationships.HostedOn
     GrafanaService:
-      type: org.alien4cloud.graphite.pub.nodes.GrafanaService
+      type: org.alien4cloud.grafana.pub.nodes.GrafanaService
       capabilities:
         http_endpoint:
           properties:
