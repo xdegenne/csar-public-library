@@ -33,7 +33,7 @@ topology_template:
     Tested on a Centos ami-4c4b003b (t2.small).
 
   substitution_mappings:
-    node_type: org.alien4cloud.monitoring.pub.nodes.GraphiteService
+    node_type: org.alien4cloud.graphite.pub.nodes.GraphiteService
     capabilities:
       http_endpoint: [ Grafana, http_endpoint ]
       data_endpoint: [ Graphite, data_endpoint ]

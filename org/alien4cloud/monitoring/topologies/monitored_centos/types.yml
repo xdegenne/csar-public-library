@@ -9,7 +9,8 @@ description: |
   Just a monitored compute (centos).
 
 imports:
-  - org.alien4cloud.monitoring.pub:1.4.0-SNAPSHOT
+  - org.alien4cloud.grafana.pub:1.4.0-SNAPSHOT
+  - org.alien4cloud.graphite.pub:1.4.0-SNAPSHOT
   - org.alien4cloud.cloudify.manager.pub:1.4.0-SNAPSHOT
   - tosca-normative-types:1.0.0-ALIEN14
   - org.alien4cloud.diamond.agent_linux:1.4.0-SNAPSHOT
@@ -36,7 +37,7 @@ topology_template:
       requirements:
         - data_endpoint:
             node: GraphiteService
-            capability: org.alien4cloud.monitoring.pub.capabilities.GraphiteDataEndpoint
+            capability: org.alien4cloud.graphite.pub.capabilities.GraphiteDataEndpoint
             relationship: org.alien4cloud.diamond.agent_linux.relationships.DiamondLinuxAgentConnectsToGraphite
         - host:
             node: MonitoredCentosMedium
@@ -44,10 +45,10 @@ topology_template:
             relationship: tosca.relationships.HostedOn
         - grafana:
             node: GrafanaService
-            capability: org.alien4cloud.monitoring.pub.capabilities.GrafanaHttpEndpoint
+            capability: org.alien4cloud.grafana.pub.capabilities.GrafanaHttpEndpoint
             relationship: org.alien4cloud.diamond.agent_linux.relationships.DiamondLinuxAgentConnectsToGrafana
     GrafanaService:
-      type: org.alien4cloud.monitoring.pub.nodes.GrafanaService
+      type: org.alien4cloud.grafana.pub.nodes.GrafanaService
       capabilities:
         http_endpoint:
           properties:
@@ -58,7 +59,7 @@ topology_template:
             network_name: PRIVATE
             initiator: source
     GraphiteService:
-      type: org.alien4cloud.monitoring.pub.nodes.GraphiteService
+      type: org.alien4cloud.graphite.pub.nodes.GraphiteService
       capabilities:
         data_endpoint:
           properties:
